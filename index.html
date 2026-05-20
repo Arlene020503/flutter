@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Présentation Complète de Flutter</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body{
+            background: #f4f7fb;
+            color: #333;
+            line-height: 1.8;
+        }
+
+        /* Navbar */
+
+        nav{
+            background: #0d1b2a;
+            padding: 18px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav ul{
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            list-style: none;
+        }
+
+        nav ul li a{
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover{
+            color: #4cc9f0;
+        }
+
+        /* Header */
+
+        header{
+            background: linear-gradient(to right, #0077b6, #00b4d8);
+            color: white;
+            text-align: center;
+            padding: 90px 20px;
+        }
+
+        header h1{
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+
+        header p{
+            font-size: 1.3rem;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        /* Sections */
+
+        section{
+            width: 85%;
+            max-width: 1100px;
+            margin: 50px auto;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        section h2{
+            color: #0077b6;
+            margin-bottom: 25px;
+            font-size: 2rem;
+        }
+
+        section p{
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        ul{
+            margin-top: 20px;
+            list-style: none;
+        }
+
+        ul li{
+            margin: 15px 0;
+        }
+
+        .card-container{
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .card{
+            background: #f1f5f9;
+            padding: 25px;
+            border-radius: 12px;
+            width: 280px;
+            transition: 0.3s;
+        }
+
+        .card:hover{
+            transform: translateY(-5px);
+        }
+
+        .card h3{
+            color: #0077b6;
+            margin-bottom: 10px;
+        }
+
+        code{
+            display: block;
+            background: #1e293b;
+            color: #4cc9f0;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+            overflow-x: auto;
+            text-align: left;
+        }
+
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 25px;
+        }
+
+        table th,
+        table td{
+            border: 1px solid #ddd;
+            padding: 15px;
+        }
+
+        table th{
+            background: #0077b6;
+            color: white;
+        }
+
+        footer{
+            background: #0d1b2a;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 50px;
+        }
+
+        @media(max-width: 768px){
+
+            header h1{
+                font-size: 2.5rem;
+            }
+
+            nav ul{
+                gap: 10px;
+            }
+
+            section{
+                width: 92%;
+                padding: 25px;
+            }
+
+            .card{
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+
+    <nav>
+        <ul>
+            <li><a href="#definition">Définition</a></li>
+            <li><a href="#fonctionnement">Fonctionnement</a></li>
+            <li><a href="#limites">Limites</a></li>
+            <li><a href="#inconvenients">Inconvénients</a></li>
+            <li><a href="#atouts">Atouts</a></li>
+            <li><a href="#utilisation">Utilisation</a></li>
+            <li><a href="#createur">Créateur</a></li>
+            <li><a href="#bonus">Bonus</a></li>
+            <li><a href="#conclusion">Conclusion</a></li>
+        </ul>
+    </nav>
+
+    <!-- Header -->
+
+    <header>
+        <h1>Flutter</h1>
+
+        <p>
+            Flutter est un framework moderne développé par Google
+            permettant de créer des applications mobiles, web et desktop
+            avec un seul code source. Grâce à ses performances élevées
+            et son interface fluide, Flutter est devenu l’un des outils
+            les plus populaires du développement d’applications.
+        </p>
+    </header>
+
+    <!-- Définition -->
+
+    <section id="definition">
+
+        <h2>Définition</h2>
+
+        <p>
+            Flutter est un framework open source créé par Google.
+            Il permet aux développeurs de concevoir des applications
+            multiplateformes avec une seule base de code.
+        </p>
+
+        <p>
+            Cela signifie qu’un développeur peut écrire une seule fois
+            son application puis la faire fonctionner sur Android,
+            iPhone, Windows, Linux, macOS et même sur le web.
+        </p>
+
+        <p>
+            Flutter utilise le langage Dart et un système de widgets
+            qui permet de créer des interfaces modernes,
+            rapides et très personnalisables.
+        </p>
+
+    </section>
+
+    <!-- Fonctionnement -->
+
+    <section id="fonctionnement">
+
+        <h2>Comment fonctionne Flutter ?</h2>
+
+        <p>
+            Flutter fonctionne grâce à un moteur graphique puissant
+            qui dessine directement les éléments de l’interface.
+            Contrairement à certains frameworks hybrides,
+            Flutter ne dépend pas des composants natifs du téléphone.
+        </p>
+
+        <p>
+            Chaque bouton, texte, image ou animation est créé
+            grâce à des widgets. Les widgets sont les éléments
+            fondamentaux utilisés pour construire l’interface utilisateur.
+        </p>
+
+        <div class="card-container">
+
+            <div class="card">
+                <h3>Widgets</h3>
+                <p>
+                    Les widgets servent à créer les éléments visuels
+                    comme les boutons, les menus et les textes.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Hot Reload</h3>
+                <p>
+                    Fonctionnalité permettant de voir instantanément
+                    les modifications du code sans redémarrer l’application.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Dart</h3>
+                <p>
+                    Langage utilisé par Flutter pour développer
+                    des applications performantes.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Limites -->
+
+    <section id="limites">
+
+        <h2>Limites de Flutter</h2>
+
+        <p>
+            Même si Flutter possède de nombreux avantages,
+            certaines limites existent selon les projets.
+        </p>
+
+        <ul>
+            <li>Applications parfois plus lourdes en taille</li>
+            <li>Consommation mémoire plus importante</li>
+            <li>Bibliothèques spécialisées parfois limitées</li>
+            <li>Configurations natives parfois nécessaires</li>
+            <li>Dart moins populaire que JavaScript ou Python</li>
+        </ul>
+
+    </section>
+
+    <!-- Inconvénients -->
+
+    <section id="inconvenients">
+
+        <h2>Inconvénients</h2>
+
+        <div class="card-container">
+
+            <div class="card">
+                <h3>Apprentissage</h3>
+                <p>
+                    Les débutants doivent apprendre Dart
+                    avant de maîtriser Flutter.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Compatibilité</h3>
+                <p>
+                    Certaines fonctionnalités natives
+                    demandent du code supplémentaire.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Performance</h3>
+                <p>
+                    Sur de vieux appareils,
+                    certaines animations peuvent ralentir.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Atouts -->
+
+    <section id="atouts">
+
+        <h2>Les atouts de Flutter</h2>
+
+        <p>
+            Flutter est apprécié par les développeurs et les entreprises
+            pour sa rapidité et sa flexibilité.
+        </p>
+
+        <table>
+
+            <tr>
+                <th>Atout</th>
+                <th>Description</th>
+            </tr>
+
+            <tr>
+                <td>Multiplateforme</td>
+                <td>Un seul code pour Android, iOS, Web et Desktop</td>
+            </tr>
+
+            <tr>
+                <td>Rapidité</td>
+                <td>Développement plus rapide grâce au Hot Reload</td>
+            </tr>
+
+            <tr>
+                <td>Performance</td>
+                <td>Applications fluides et proches du natif</td>
+            </tr>
+
+            <tr>
+                <td>Design moderne</td>
+                <td>Interfaces élégantes et personnalisables</td>
+            </tr>
+
+            <tr>
+                <td>Communauté</td>
+                <td>Grande communauté et documentation complète</td>
+            </tr>
+
+        </table>
+
+    </section>
+
+    <!-- Utilisation -->
+
+    <section id="utilisation">
+
+        <h2>Comment utiliser Flutter ?</h2>
+
+        <p>
+            Pour commencer avec Flutter,
+            plusieurs étapes sont nécessaires.
+        </p>
+
+        <div class="card-container">
+
+            <div class="card">
+                <h3>1. Installation</h3>
+                <p>
+                    Télécharger Flutter depuis le site officiel
+                    puis installer Dart automatiquement.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>2. Éditeur</h3>
+                <p>
+                    Installer Visual Studio Code
+                    ou Android Studio.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>3. Configuration</h3>
+                <p>
+                    Configurer les émulateurs Android
+                    ou connecter un téléphone.
+                </p>
+            </div>
+
+        </div>
+
+        <p>Création d’un projet :</p>
+
+        <code>
+flutter create mon_application
+        </code>
+
+        <p>Lancer l’application :</p>
+
+        <code>
+flutter run
+        </code>
+
+    </section>
+
+    <!-- Créateur -->
+
+    <section id="createur">
+
+        <h2>Qui a créé Flutter ?</h2>
+
+        <p>
+            Flutter a été créé par Google.
+            Le projet a été présenté officiellement
+            lors d’événements dédiés aux développeurs.
+        </p>
+
+        <p>
+            La première version stable est sortie en 2018.
+            Depuis, Flutter continue d’évoluer avec
+            de nombreuses mises à jour.
+        </p>
+
+    </section>
+
+    <!-- Bonus -->
+
+    <section id="bonus">
+
+        <h2>Bonus</h2>
+
+        <p>
+            Flutter est utilisé dans plusieurs domaines
+            grâce à sa flexibilité.
+        </p>
+
+        <div class="card-container">
+
+            <div class="card">
+                <h3>Applications bancaires</h3>
+                <p>
+                    Création d’applications financières modernes.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>E-commerce</h3>
+                <p>
+                    Développement de boutiques en ligne performantes.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Réseaux sociaux</h3>
+                <p>
+                    Création de plateformes interactives et rapides.
+                </p>
+            </div>
+
+        </div>
+
+        <p>
+            Plusieurs grandes entreprises utilisent Flutter :
+        </p>
+
+        <ul>
+            <li>Google</li>
+            <li>Alibaba</li>
+            <li>BMW</li>
+            <li>eBay</li>
+        </ul>
+
+    </section>
+
+    <!-- Conclusion -->
+
+    <section id="conclusion">
+
+        <h2>Conclusion</h2>
+
+        <p>
+            Flutter est aujourd’hui l’un des frameworks
+            les plus puissants pour le développement
+            d’applications multiplateformes.
+        </p>
+
+        <p>
+            Grâce à son système de widgets,
+            ses performances élevées et son développement rapide,
+            Flutter permet de créer des applications modernes
+            avec une excellente expérience utilisateur.
+        </p>
+
+        <p>
+            Il représente une solution idéale pour les développeurs
+            souhaitant gagner du temps tout en créant
+            des applications professionnelles.
+        </p>
+
+    </section>
+
+    <!-- Footer -->
+
+    <footer>
+        <p>
+            Présentation complète de Flutter | Réalisée par Arlene
+        </p>
+    </footer>
+
+</body>
+
+</html>
